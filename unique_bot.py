@@ -4,10 +4,11 @@
 #   Given input via stdin, return unique lines.
 #
 
+import argparse
 import sys
 
 
-class UniqueBot():
+class UniqueBot:
     """
     Given input, returns unique lines.
     """
@@ -31,6 +32,7 @@ class UniqueBot():
                 else:
                     self.unique_lines[clean_line] = 1
 
+
     def print_lines(self):
         """
         Print lines to stdout, optionally including unique counts.
@@ -46,14 +48,27 @@ class UniqueBot():
             print(formatted_line)
 
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(
+        description='Given input, returns unique lines.')
+    parser.add_argument('-c', '--count', dest='count',
+                          action='store_const', const=True, default=False,
+                          help='Prepend a count of each unique line to stdout.')
+    args = parser.parse_args()
+    return args
+
+
 def run():
     """
     Populate UniqueBot with stdin input, and print unique lines.
     """
+    args = parse_arguments()
     input = sys.stdin
-    unique_bot = UniqueBot(input)
+
+    unique_bot = UniqueBot(input, args.count)
     unique_bot.print_lines()
 
 
 # Here goes nothing!
-run()
+if __name__ == '__main__':
+    run()
