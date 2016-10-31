@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 #
+# (c) 2016, Byron Dover <byrondover@gmail.com>
+#
 # unique_bot.py
 #   Given input via stdin, return unique lines.
+#
+# Authors:
+#   Byron Dover <byrondover@gmail.com>
+#
+# License:
+#   MIT
 #
 
 import argparse
@@ -13,9 +21,9 @@ class UniqueBot:
     Given input, returns unique lines.
     """
 
-    def __init__(self, input, count=False):
+    def __init__(self, _input, count=False):
         self.count = count
-        self.input = input
+        self.input = _input
         self.unique_lines = dict()
 
     def _find_unique_lines(self):
@@ -63,9 +71,9 @@ def run():
     Populate UniqueBot with stdin input, and print unique lines.
     """
     args = parse_arguments()
-    input = sys.stdin
+    _input = sys.stdin
 
-    unique_bot = UniqueBot(input, args.count)
+    unique_bot = UniqueBot(_input, args.count)
     unique_bot.print_lines()
 
 
