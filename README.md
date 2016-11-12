@@ -1,3 +1,3 @@
 # Python Practice
 
-Python 3 exercises to keep this skills fresh!
+Python 3 exercises to keep the skills fresh!
